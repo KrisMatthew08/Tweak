@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tweak</title>
+<style>
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #222;
+  }
+  h1 { margin-bottom: 4px; }
+  p.subtitle { color: #666; margin-top: 0; }
+  label { display: block; margin-top: 16px; font-weight: 600; }
+  textarea, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+  textarea { height: 90px; resize: vertical; }
+  button {
+    margin-top: 20px;
+    padding: 10px 24px;
+    font-size: 15px;
+    background: #A6192E;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:disabled { background: #d99aa3; cursor: not-allowed; }
+  #status { margin-top: 16px; font-size: 14px; }
+  #status.error { color: #b91c1c; }
+  #status.success { color: #15803d; }
+  a.download {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #15803d;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+  <h1>Tweak</h1>
+  <p class="subtitle">Precision. Design. Transformation.</p>
+  <p class="subtitle">AI-powered instant presentation generator &mdash; describe your topic and get a ready-to-edit slide deck.</p>
+
+  <label for="topic">Topic / description</label>
+  <textarea id="topic" placeholder="e.g. Make a slide deck on the basics of machine learning"></textarea>
+
+  <label for="template">Template</label>
+  <select id="template">
+    <option value="0">Basic</option>
+    <option value="1">Ion Boardroom</option>
+    <option value="2">Minimalist Sales Pitch</option>
+    <option value="3">Urban Monochrome</option>
+  </select>
+
+  <button id="generateBtn">Generate slide deck</button>
+
+  <div id="status"></div>
+
+  <script>
+    const btn = document.getElementById('generateBtn');
+    const statusEl = document.getElementById('status');
+
+    btn.addEventListener('click', async () => {
+      const topic = document.getElementById('topic').value.trim();
+      const templateIdx = parseInt(document.getElementById('template').value, 10);
+
+      if (!topic) {
+        statusEl.className = 'error';
+        statusEl.textContent = 'Please enter a topic.';
+        return;
+      }
+
+      btn.disabled = true;
+      statusEl.className = '';
+      statusEl.textContent = 'Generating slide deck... this can take up to a minute.';
+
+      try {
+        const res = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ topic: topic, template_idx: templateIdx }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.detail || 'Generation failed.');
+        }
+
+        statusEl.className = 'success';
+        statusEl.innerHTML = 'Done! ';
+        const link = document.createElement('a');
+        link.className = 'download';
+        link.href = data.download_url;
+        link.textContent = 'Download Presentation.pptx';
+        statusEl.appendChild(link);
+      } catch (err) {
+        statusEl.className = 'error';
+        statusEl.textContent = 'Error: ' + err.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+    "app_name": ":green[SlideDeck AI $^{[Reloaded]}$]",
+    "caption": "*Create and improve your next PowerPoint slide deck*",
+    "section_headers": [
+        "Step 1: Generate your content",
+        "Step 2: Make it structured",
+        "Step 3: Create the slides",
+        "Bonus Materials"
+    ],
+    "section_captions": [
+        "Let's start by generating some contents for your slides.",
+        "Let's now convert the above generated contents into JSON.",
+        "Let's now create the slides for you.",
+        "Since you have come this far, we have unlocked some more good stuff for you!"
+    ],
+    "input_labels": [
+        "**Describe the topic of the presentation using 10 to 300 characters. Avoid mentioning the count of slides.**"
+    ],
+    "button_labels": [
+        "Generate contents",
+        "Generate JSON",
+        "Make the slides"
+    ],
+    "urls_info": "Here is a list of some online resources that you can consult for further information on this topic:",
+    "image_info": "Got some more minutes? We are also trying to deliver an AI-generated art on the presentation topic, fresh off the studio, just for you!",
+    "content_generation_error": "Unfortunately, SlideDeck AI failed to generate any content for you! Please try again later.",
+    "json_parsing_error": "Unfortunately, SlideDeck AI failed to parse the response from LLM! Please try again by rephrasing the query or refreshing the page.",
+    "tos": "SlideDeck AI is an experimental prototype, and it has its limitations.\nAI-generated content may be incorrect. Please carefully review and verify the contents.",
+    "tos2": "By using SlideDeck AI, you agree to fair and responsible usage.\nNo liability assumed by any party.",
+    "ai_greetings": [
+        "Stuck with creating your presentation? Let me help you brainstorm.",
+        "Need a verbose slide deck? Specify the verbosity level (1 to 10) in your instructions (default 7).",
+        "Did you know that SlideDeck AI can create a presentation based on any uploaded PDF file?",
+        "Want it shorter or more detailed? Set verbosity (1–10, default: 7) in your instructions.",
+        "Don't want the key message box in slide #3? Just ask me to remove it."
+    ],
+    "chat_placeholder": "Write the topic or instructions here. You can also upload a PDF file.",
+    "like_feedback": "If you like SlideDeck AI, please consider leaving a heart ❤\uFE0F on the [Hugging Face Space](https://huggingface.co/spaces/barunsaha/slide-deck-ai/) or a star ⭐ on [GitHub](https://github.com/barun-saha/slide-deck-ai). Your [feedback](https://forms.gle/JECFBGhjvSj7moBx9) is appreciated."
+}
