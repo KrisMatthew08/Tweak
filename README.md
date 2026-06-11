@@ -1,5 +1,5 @@
 ---
-title: SlideDeck AI
+title: Tweak
 emoji: 🏢
 colorFrom: yellow
 colorTo: green
@@ -19,13 +19,17 @@ license: mit
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://huggingface.co/spaces/barunsaha/slide-deck-ai)
 
 
-# SlideDeck AI: The AI Assistant for Professional Presentations
+# Tweak: AI-Powered Instant Presentation Generator
+
+*Precision. Design. Transformation.*
 
 We all spend countless hours **creating** slides and meticulously organizing our thoughts for any presentation.
 
-**SlideDeck AI is your powerful AI assistant** for presentation generation. Co-create stunning, professional slide decks on any topic with the help of cutting-edge **Artificial Intelligence** and **Large Language Models**.
+This is the **DIY presentation generator** feature of **Tweak**, a design-support service for students. Co-create stunning, professional slide decks on any topic with the help of cutting-edge **Artificial Intelligence** and **Large Language Models**.
 
-**The workflow is simple:** Describe your topic, and let SlideDeck AI generate a complete **PowerPoint slide deck** for you—it's that easy!
+**The workflow is simple:** Describe your topic, and let Tweak generate a complete **PowerPoint slide deck** for you—it's that easy!
+
+> Built on top of [SlideDeck AI](https://github.com/barun-saha/slide-deck-ai), an open-source AI presentation generator. The core slide-generation engine and PPTX templates come from that project; this repo adapts it into a web prototype for Tweak.
 
 
 ## Star History
